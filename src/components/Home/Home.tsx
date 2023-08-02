@@ -148,57 +148,13 @@ const Home = (props: Props) => {
           <h1>{props.title}</h1>
           <p>The number 1 streaming service.</p>
           <h1>New Releases</h1>
-          {netflixData.map((movie: NetflixState) => (
+          {netflixData.slice(0, 2).map((movie: NetflixState) => (
             <div key={movie.netflix_id}>
-              <h2>{movie.title}</h2>
+              <h3>{movie.title}</h3>
               <img src={movie.img} alt={movie.title} />
             </div>
           ))}
         </MainText>
-
-        
-        {/**  This section below is how the movie.map was supposed to run, showing the pictures of the movie poster
-         * and allowing the user to see what movies are there. Since my api calls were not working properly, I included
-         * what it would have looked like.
-        */}
-
-        <section style={{ 
-        backgroundImage: `url("https://movies.universalpictures.com/media/opr-tsr1sheet3-look2-rgb-3-1-1-64545c0d15f1e-1.jpg")`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        display: 'flex',
-        position: 'relative',
-        top: '96px',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: '#fff',
-        fontSize: '2rem',
-        width: '50%',
-        height: '100%'
-}}>
-</section>
-<section style={{ 
-        backgroundImage: `url("https://movies.universalpictures.com/media/opr-tsr1sheet3-look2-rgb-3-1-1-64545c0d15f1e-1.jpg")`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        display: 'flex',
-        justifyContent: 'center',
-        position: 'relative',
-        bottom: '850px',
-        left: '952px',
-        alignItems: 'center',
-        color: '#fff',
-        fontSize: '2rem',
-        width: '50%',
-        height: '100%'
-}}>
-</section>
-
-        {/* <img src='https://movies.universalpictures.com/media/opr-tsr1sheet3-look2-rgb-3-1-1-64545c0d15f1e-1.jpg' alt="Home" />
-        <img src='https://deadline.com/wp-content/uploads/2023/04/barbie-BARBIE_VERT_TSR_W_TALENT_2764x4096_DOM_rgb.jpg?w=800' alt="Home" />
-        <img src='https://movies.universalpictures.com/media/opr-tsr1sheet3-look2-rgb-3-1-1-64545c0d15f1e-1.jpg' alt="Home" /> */}
       </Main>
       
       </Root>

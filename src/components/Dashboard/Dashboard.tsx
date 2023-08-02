@@ -107,24 +107,26 @@ const myStyles = {
 
 export const Dashboard = () => {
     const navigate = useNavigate();
-    const [ open, setOpen ] = useState(false);
-    const [ dialogOpen, setDialogOpen ] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [dialogOpen, setDialogOpen] = useState(false);
     const [movies, setMovies] = useState([]);
-
+    const [selectedId, setSelectedId] = useState<string | number | null>(null); // State variable for selected ID
+  
     const handleDrawerOpen = () => {
-        setOpen(true)
+      setOpen(true);
     }
-
+  
     const handleDrawerClose = () => {
-        setOpen(false)
+      setOpen(false);
     }
-
-    const handleDialogOpen = () => {
-        setDialogOpen(true)
+  
+    const handleDialogOpen = (id: number | string) => { // Updated to accept an ID
+      setSelectedId(id); // Set the selected ID
+      setDialogOpen(true);
     }
-
+  
     const handleDialogClose = () => {
-        setDialogOpen(false)
+      setDialogOpen(false);
     }
 
     const handleGetMovies = async () => {
@@ -177,7 +179,7 @@ export const Dashboard = () => {
                     <MenuIcon /> 
                 </IconButton>
                 <Typography variant='h6' noWrap> Dashboard</Typography>
-                <Button onClick={ handleDialogOpen } sx={ myStyles.toolbarButton }> Add A Netflix Show/Movie </Button>
+        <Button onClick={() => handleDialogOpen(1)} sx={myStyles.toolbarButton}> Edit A Netflix Show/Movie </Button> {/* Updated button */}
                 <Button onClick={handleGetMovies} sx={myStyles.toolbarButton}>Get Movies</Button>
                 
                 <Dialog open={ dialogOpen } onClose={ handleDialogClose } aria-aria-labelledby='form-dialog-title'>

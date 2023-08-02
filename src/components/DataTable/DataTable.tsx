@@ -134,28 +134,27 @@ interface NetflixFormProps {
                 checkboxSelection
                 onRowSelectionModelChange={(newSelectionModel) => setData(newSelectionModel)}
             />
-            <Button onClick={() => {
+            {/* <Button onClick={() => {
                 if (gridData.length > 0) {
                     const selectedMovie = netflixData.find(movie => movie.netflix_id === gridData[0]);
                 if (selectedMovie) {
                     updateData(selectedMovie);
                  }
                  }
-            }}>Update</Button>
+            }}>Update</Button> */}
             <Button variant='contained' color='warning' onClick={deleteData}>Delete</Button>
             
             <Button onClick={handleCreateDialogOpen}>Create</Button>
 
             <Dialog open={createDialogOpen} onClose={handleCreateDialogClose} aria-labelledby='form-dialog-title'>
-                <DialogTitle id='form-dialog-title'>Create a New Netflix Show/Movie</DialogTitle>
-                <DialogContent>
-
-                <NetflixForm onSubmit={createData} />
-                </DialogContent>
-                <DialogActions>
+            <DialogTitle id='form-dialog-title'>Create a New Netflix Show/Movie</DialogTitle>
+            <DialogContent>
+                <NetflixForm />
+            </DialogContent>
+            <DialogActions>
                 <Button onClick={handleCreateDialogClose} color='error'>Cancel</Button>
-                </DialogActions>
-            </Dialog>    
+            </DialogActions>
+            </Dialog>
 
 
             <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
